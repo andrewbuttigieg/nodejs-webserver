@@ -1,6 +1,8 @@
 var app = require('express')();
 var http = require('http').Server(app);
 
+app.set('port', (process.env.PORT || 5000));
+
 app.get('/', function(req, res){
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.write('<a href="/about">About</a><br/>');
@@ -16,6 +18,6 @@ app.get('/Blog', function(req, res){
   res.send('<h1>Blog</h1>');
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+http.listen(app.get('port'), function(){
+  console.log('listening on *:', app.get('port'));
 });
