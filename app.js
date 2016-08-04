@@ -16,6 +16,6 @@ app.get('/Blog', function(req, res){
   res.send('<h1>Blog</h1>');
 });
 
-http.listen(3000, function(){
+http.listen(80, function(){
   console.log('listening on *:3000');
 });
